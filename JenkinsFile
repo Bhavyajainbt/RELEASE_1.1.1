@@ -5,9 +5,15 @@ pipeline {
         
         stage('BUILD'){
             steps {
+                echo "Building the Code from Branch and Creating Packaged file out of that."
+            }
+            steps {
                 build job: 'BUILD_JOB',parameters:[
                     string(name: 'BRANCH_NAME',value: "${params.BRANCH_NAME}")
                     ]
+            }
+            steps {
+                echo "BUILD is DONE"
             }
         }
         
